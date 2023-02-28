@@ -1,0 +1,24 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(150, 0, 237, 1) 0%, rgba(80, 5, 103, 1) 0%, rgba(86, 0, 86, 0.98) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    border: 1px solid white;
+    width: 500px;
+    height: 500px;
+}
