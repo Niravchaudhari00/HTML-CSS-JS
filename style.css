@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    height: 600px;
+    background-image: url("/assets/first-1.jpg");
+    background-size: 500px;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
