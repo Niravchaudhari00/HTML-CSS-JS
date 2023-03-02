@@ -31,23 +31,23 @@ inputSlider.addEventListener("input", (e) => {
 function getIntNumber(min,max) {
      return Math.floor(Math.random() * (max - min) + min);
 }
-// Get Number Password
-function randomNumberPassword() {
+// Generate Random Number
+function generateRandomNumber() {
     return getIntNumber(0, 9);
 }
 
-// Get LowerCase Password
-function randomLowerCasePassword() {
-     return String.fromCharCode(getIntNumber(97, 122));
-}
-
-// Get UpperCase Password
-function randomUpperCasePassword() {
+// Generate Random UpperCase
+function generateRandomUpperCase() {
      return String.fromCharCode(getIntNumber(65, 90));
 }
 
-// Get Symbole Password
-function randomSymbolPassword() {
+// Generate Random LowerCase
+function generateRandomLowerCase() {
+     return String.fromCharCode(getIntNumber(97, 122));
+}
+
+// Generate Random Symbole
+function generateRandomSymbol() {
      const randomIndexNum = getIntNumber(0, symbole.length)
      return symbole.charAt(randomIndexNum);
 }
