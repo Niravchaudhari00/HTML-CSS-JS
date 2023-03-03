@@ -80,7 +80,32 @@ function caclStrength() {
     if (checkSymboles.checked) hasSymboles = true;
 
     if (hasUpperCase && hasLowerCase && (hasNumber || hasSymboles) && passwordLength >= 8) {
-        setIndicator("")
+        setIndicator("#0f0");
+    } else if ((hasUpperCase || hasLowerCase) && (hasNumber || hasSymboles) && passwordLength >= 6) {
+        setIndicator("#ff0");
+    } else {
+        setIndicator("#f00")
     }
 
 }
+
+// checkbox handle
+function handleCheckboxs() {
+    // console.log("click checkbox");
+    let checkCount = 0;
+
+    checkboxs.forEach((checkbox) => {
+        if (checkbox.checked) checkCount++;
+    })
+    
+    if (passwordLength < checkCount) {
+        passwordLength = checkCount;
+        handleSlider()
+    }
+}
+
+// all checkbox addEventListener "chang"
+checkboxs.forEach(checkbox => {
+    checkbox.addEventListener("chang", handleCheckboxs);
+})
+
