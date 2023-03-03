@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>password generator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/ac77dd0d1e.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/8d11e045a9.js" crossorigin="anonymous"></script> -->
+
 </head>
 
 <body>
@@ -15,9 +16,11 @@
         <h1 class="heading">password generator</h1>
         <div class="container">
             <div class="display-container">
-                <input type="text" name="" id="" class="display" placeholder="password">
-                <!-- <i class="fa-regular fa-copy copy-icon" data-copyButton></i> -->
-                <i class="fa-regular fa-copy copy-icon"></i>
+                <input type="text" name="" id="passwordDisplay" class="display" placeholder="password">
+                <span class="active" data-copyContent>copied</span>
+                <button class="copyBtn">
+                    <i class="fa-light fa-copy"></i>
+                </button>
             </div>
             <div class="content">
                 <div class="passwordCount">
@@ -56,6 +59,8 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

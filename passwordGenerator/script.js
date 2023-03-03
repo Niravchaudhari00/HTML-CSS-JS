@@ -4,6 +4,8 @@ const password_length = document.querySelector("[data-passwordLength]");
 const inputSlider = document.querySelector("[data-inputSlider]");
 const checkboxs = document.querySelectorAll(".checkboxs");
 const indicator = document.querySelector(".strenth-color");
+const passwordDisplay = document.getElementById("passwordDisplay");
+const copyPassword = document.querySelector("[data-copyContent]");
 
 //get checkbox 
 const checkUpperCase = document.getElementById("hasUpperCase");
@@ -97,7 +99,7 @@ function handleCheckboxs() {
     checkboxs.forEach((checkbox) => {
         if (checkbox.checked) checkCount++;
     })
-    
+
     if (passwordLength < checkCount) {
         passwordLength = checkCount;
         handleSlider()
@@ -109,3 +111,15 @@ checkboxs.forEach(checkbox => {
     checkbox.addEventListener("chang", handleCheckboxs);
 })
 
+async function copyContent() {
+    try {
+        await navigator.clipboard.writeText(passwordDisplay.value);
+        copyPassword.innerText = "copied";
+
+    } catch (err) {
+        copyPassword.innerText = "Failed";
+    }
+
+
+
+}
