@@ -6,6 +6,7 @@ const checkboxs = document.querySelectorAll(".checkboxs");
 const indicator = document.querySelector(".strenth-color");
 const passwordDisplay = document.getElementById("passwordDisplay");
 const copyPassword = document.querySelector("[data-copyContent]");
+const copyBtn = document.getElementById("copyBtn");
 
 //get checkbox 
 const checkUpperCase = document.getElementById("hasUpperCase");
@@ -93,11 +94,11 @@ function caclStrength() {
 
 // checkbox handle
 function handleCheckboxs() {
-    // console.log("click checkbox");
-    let checkCount = 0;
-
+    checkCount = 0;
     checkboxs.forEach((checkbox) => {
-        if (checkbox.checked) checkCount++;
+        if (checkbox.checked)
+            checkCount++;
+        // console.log(checkCount);
     })
 
     if (passwordLength < checkCount) {
@@ -105,10 +106,9 @@ function handleCheckboxs() {
         handleSlider()
     }
 }
-
 // all checkbox addEventListener "chang"
-checkboxs.forEach(checkbox => {
-    checkbox.addEventListener("chang", handleCheckboxs);
+checkboxs.forEach((checkbox) => {
+    checkbox.addEventListener("change", handleCheckboxs);
 })
 
 async function copyContent() {
@@ -120,6 +120,65 @@ async function copyContent() {
         copyPassword.innerText = "Failed";
     }
 
+    copyPassword.classList.add("active")
 
-
+    setTimeout(() => {
+        copyPassword.classList.remove("active")
+    }, 2000);
 }
+
+copyBtn.addEventListener("click", () => {
+    if (passwordDisplay.value)
+        copyContent()
+})
+
+
+const generatePassword = document.querySelector("[data-generatePassword]");
+generatePassword.addEventListener("click", () => {
+    console.log("generate password");
+    console.log(checkCount);
+    if (checkCount == 0)
+        return;
+
+    if (passwordLength < checkCount) {
+        passwordLength = checkCount;
+        handleSlider()
+    }
+
+    // remove old password
+    password = "";
+
+    let funArr = [];
+
+    if (checkUpperCase.checked)
+        funArr.push(generateRandomUpperCase)
+
+    if (checkLowerCase.checked)
+        funArr.push(generateRandomLowerCase)
+
+    if (checkNumber.checked)
+        funArr.push(generateRandomNumber)
+
+    if (checkSymboles.checked)
+        funArr.push(generateRandomSymbol)
+
+    // Compulsory add
+    for (let i = 0; i < funArr.length; i++) {
+        password += funArr[i]();
+    }
+    // console.log(password);
+    // console.log(funArr);
+    // passwordDisplay.value = password;
+    // Compulsory add done
+
+    // // random add
+    for (let i = 0; i < passwordLength - funArr.length; i++) {
+        let randIndex = getIntNumber(0, funArr.length);
+        password += funArr[randIndex]();
+    }
+
+    // Show in UI
+    passwordDisplay.value = password;
+    caclStrength()
+
+})

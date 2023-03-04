@@ -1,6 +1,4 @@
-*,
-::before,
-::after {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,13 +19,14 @@
 }
 
 #wrapper {
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
     background: linear-gradient(231deg, rgba(22, 6, 40, 1) 0%, rgba(52, 28, 79, 1) 50%, rgba(88, 7, 125, 1) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding:3.5px;
 }
 
 .container {
@@ -58,6 +57,9 @@
     outline: none;
     padding: 1rem .80rem;
     background-color: transparent;
+    color: var(--vb-yellow);
+    font-size: 1rem;
+    
 }
 
 .display::placeholder {
@@ -74,13 +76,16 @@
     position: absolute;
     top: 50%;
     right: 1rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
     transform: translateY(-50%);
-    color: #ffff00;
     cursor: pointer;
-    color: black;
     padding: 0.5rem;
-    font-size: 0.79rem;
-    font-weight: 600;
+}
+.fa-copy{
+    color: var(--vb-yellow);
+    font-size: 1.1rem;
 }
 
 .content {
@@ -114,20 +119,11 @@
 }
 
 .passwordlength input {
-    /* appearance: none;
-    width: 100%;
-    height: .75rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    background-image:linear-gradient(var(--vb-violet),var(--vb-violet));
-    background-repeat: no-repeat;
-    border: none;
-    outline: none;
-    background-color: var(--lt-violet); */
     appearance: none;
     width: 100%;
     height: 0.75rem;
     cursor: pointer;
+   
     background-color: var(--lt-violet);
     border-radius: 1rem;
     margin-top: 2rem;
@@ -136,7 +132,6 @@
     background-repeat: no-repeat;
     border: none;
     outline: none;
-    z-index: -1;
 }
 
 .passwordlength input:focus {
@@ -210,7 +205,8 @@
     box-shadow: 0px 0px 10px 6px var(--vb-yellow);
 }
 
-.active {
+.copied-text{
+    opacity: 0;
     position: absolute;
     color: black;
     top: -25px;
@@ -219,4 +215,8 @@
     padding: 0.2rem 0.4rem;
     right: .4rem;
     border-radius: 10px;
+}
+
+.active{
+    opacity: 1;
 }
