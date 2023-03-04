@@ -166,19 +166,32 @@ generatePassword.addEventListener("click", () => {
     for (let i = 0; i < funArr.length; i++) {
         password += funArr[i]();
     }
-    // console.log(password);
-    // console.log(funArr);
-    // passwordDisplay.value = password;
-    // Compulsory add done
 
-    // // random add
     for (let i = 0; i < passwordLength - funArr.length; i++) {
         let randIndex = getIntNumber(0, funArr.length);
         password += funArr[randIndex]();
     }
 
+    // suffle password
+    password = sufflePassword(Array.from(password))
     // Show in UI
     passwordDisplay.value = password;
     caclStrength()
 
 })
+
+function sufflePassword(array) {
+    // Fisher Yates Method
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    let str = "";
+    array.forEach((el) => {
+        str += el;
+    })
+    return str;
+}
