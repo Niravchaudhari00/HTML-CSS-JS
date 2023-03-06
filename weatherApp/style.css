@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+:root {
+     --txt-white: #f9f7f7;
+     --btn-bg: #7d91ad;
+     --txt-fadeWhite: #0e0e0ebb;
+
+}
+/* ============================= */
+/* Main div name is Wrapper */
+
+#wrapper {
+     height: 100vh;
+     width: 100vw;
+     background: linear-gradient(
+          180deg,
+          rgba(15, 125, 160, 0.86) 0%,
+          rgba(52, 43, 96, 1) 100%,
+          rgba(33, 13, 140, 1) 100%
+     );
+     font-family: "Ubuntu",sans-serif;
+     color: var(--txt-white);
+     overflow-x: hidden;
+}
+
+/* container */
+.container{
+     width: 90%;
+     max-width: 1080px;
+     margin: 0 auto;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+/* heading */
+.heading {
+     text-align: center;
+     margin: 1rem 0;
+}
+
+.selector-container{
+     /* border: 1px solid black; */
+     margin-top: 2rem;
+     width: 100%;
+     max-width: 510px;
+     display: flex;
+     justify-content: space-between;
+}
+
+.tag{
+     padding: 0.50rem;
+     border-radius: 5px;
+}
+
+.tag.active{
+     display: block;
+     background-color: var(--btn-bg);
+}
+
+.main-content{
+     width: 100%;
+     max-width: 510px;
+     display: none;
+     flex-direction: column;
+     align-items: center;
+     margin: 3rem 0;
+     padding: 0.75rem;
+     gap: 1rem;
+}
+.location-img{
+     width:15%;
+}
+.sub-heading{
+     margin-top: 2rem;
+}
+.sub-heading h1:first-of-type{
+     margin: 0.75rem 0;
+}
+.sub-heading p:first-of-type{
+     text-align: center;
+}
+
+.access-btn{
+     all:unset;
+     background-color: var(--btn-bg);
+     padding:.70rem;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.5s ease;
+}
+.access-btn:hover{
+     background-color: var(--txt-fadeWhite);
+
+}
+
+/* -------end----------- */
+
+
+/* -------end----------- */
+/* @media screen and (max-width:320px) {
+     .main-content{
+          
+     }
+} */
