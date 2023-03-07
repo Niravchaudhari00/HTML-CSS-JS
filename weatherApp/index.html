@@ -8,6 +8,7 @@
      <title>-- Check My Weather --</title>
      <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
      <link rel="stylesheet" href="style.css">
+     <script src="https://kit.fontawesome.com/8d11e045a9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -15,21 +16,64 @@
           <div class="container">
                <h1 class="heading">WEATHER APP</h1>
                <div class="selector-container">
-                    <p class="tag cu active">Your Weather</p>
-                    <p class="tag">Search Weather</p>
+                    <p class="tag" data-yourWeather>Your Weather</p>
+                    <p class="tag" data-searchCity>Search Weather</p>
                </div>
+               <!-- grant-access container -->
                <div class="grant-access active" id="grant-access">
+                    <img src="./assets/location.png" alt="location" class="location-img" loading="lazy">
+                    <div class="sub-heading">
+                         <h1>Grant Location Access</h1>
+                         <p>Allow Access to get weather Information</p>
+                    </div>
+                    <button class="access-btn" id="grantAccessBtn">Grant Access</button>
+               </div>
+               <!-- Search Container -->
+               <div class="search-weather-container">
+                    <form action="" class="form-search">
+                         <input type="search" name="" id="" placeholder="Search here...">
+                         <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+               </div>
 
-                    <div class="main-content">
-                         <img src="./assets/location.png" alt="location" class="location-img" loading="lazy">
+               <!-- loading screen -->
+               <div class="loading" data-loading>
+                    <img src="./assets/loading.gif" width="150px" height="150px" alt="">
+                    <p align="center">Loading...</p>
+               </div>
 
-                         <div class="sub-heading">
-                              <h1>Grant Location Access</h1>
-                              <p>Allow Access to get weather Information</p>
+               <!-- Weather container -->
+               <div class="weather-container">
+                    <div class="content">
+                         <h1 class="location-name">
+                              Surat
+                              <img src="https://flagcdn.com/144x108/in.png" class="country-flag" alt="">
+                         </h1>
+                         <p data-description></p>
+                         <img src="http://openweathermap.org/img/w/03n.png" class="icon" alt="" data-icon>
+                         <h2 class="celsius-name" data-celsius-name> 11.95 °C
+                              <h2 />
+                    </div>
+                    <div class="card-container">
+                         <div class="card windspeed">
+                              <img src="./assets/wind.png" alt="" class="weather-icon">
+                              <p class="wind-name">WINDSPEED</p>
+                              <p class="degree-name">3.6 m/s</p>
                          </div>
-                         <button class="access-btn">Grant Access</button>
+                         <div class="card humidity">
+                              <img src="./assets/humidity.png" alt="" class="weather-icon">
+                              <p class="wind-name">HUMIDITY</p>
+                              <p class="degree-name">3.6 m/s</p>
+                         </div>
+                         <div class="card coulds">
+                              <img src="./assets/cloud.png" alt="" class="weather-icon">
+                              <p class="wind-name">CLOUDS</p>
+                              <p class="degree-name">3.6 m/s</p>
+                         </div>
                     </div>
                </div>
+
+
           </div>
      </div>
      <script src="script.js"></script>

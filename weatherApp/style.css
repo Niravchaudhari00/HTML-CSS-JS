@@ -56,15 +56,16 @@
 
 .tag{
      padding: 0.50rem;
-     border-radius: 5px;
+     cursor: pointer;
 }
 
-.tag.active{
-     display: block;
+.tag.currentTab{
+     /* display: block; */
+     border-radius: 5px;
      background-color: var(--btn-bg);
 }
 
-.main-content{
+.grant-access {
      width: 100%;
      max-width: 510px;
      display: none;
@@ -73,6 +74,9 @@
      margin: 3rem 0;
      padding: 0.75rem;
      gap: 1rem;
+}
+.grant-access.active{
+     display:flex;
 }
 .location-img{
      width:15%;
@@ -102,8 +106,101 @@
 
 /* -------end----------- */
 
+/* weather container */
+.weather-container{
+     display: none;
+     flex-direction: column;
+     flex-wrap: wrap;
+     align-items: center;
+     margin: 3rem 0;
+     padding: 0.75rem;
+     gap: 1rem;
+}
 
+.content{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1rem 0;
+}
+.location-name{
+     text-align: center;
+     text-transform: uppercase;
+}
+.country-flag{
+     width: 10%;
+
+}
+.card-container{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 1rem;
+}
+.card{
+     background-color: var(--btn-bg);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: .75rem;
+     padding: .75rem;
+     border-radius: 10px;
+}
+
+.weather-icon{
+     width: 40%;
+}
 /* -------end----------- */
+
+/* Search Container */
+.search-weather-container{
+     display: none;
+     width: 100%;
+     max-width: 510px;
+     margin-top: 3rem;
+}
+
+.search-weather-container.active{
+     display: block;
+}
+
+.form-search input{
+     width: 90%;
+     outline: none;
+     border: none;
+     background-color: var(--btn-bg);
+     color: white;
+     font-weight: 600;
+     font-size: 1rem;
+
+     padding: .75rem;
+     border-radius: 50px;
+}
+.form-search input:focus{
+     outline: 2px solid white;
+}
+.form-search input::placeholder{
+     color: white;
+}
+
+.search-btn{
+     padding: .75rem;
+     border-radius: 50px;
+     background-color: var(--btn-bg);
+     color: white;
+     border: none;
+     cursor: pointer;
+     margin-left: 0.20rem;
+}
+
+.search-btn i{
+     font-size: 1rem;
+}
+.loading{
+     display: none;
+}
+.loading.active{
+     display: block;
+}
 /* @media screen and (max-width:320px) {
      .main-content{
           
