@@ -43,9 +43,8 @@ function switchedTab(clickedTab) {
                getFormSessionStorage();
           }
      }
-     // console.log(!searchForm.classList.contains("active"))
-
 }
+// tab witch you want to select 
 userTab.addEventListener("click", () => {
      switchedTab(userTab);
 })
@@ -54,6 +53,7 @@ searchTab.addEventListener("click", () => {
      switchedTab(searchTab);
 })
 
+// get the coordinate in session storage
 function getFormSessionStorage() {
      let localStorage = sessionStorage.getItem("user-coordinate");
      if (!localStorage) {
@@ -64,12 +64,8 @@ function getFormSessionStorage() {
      }
 }
 // fetch the waether api this function is a sync function
-
 async function fetchUserWeatherInfo(coordinate) {
-     // let lon = coordinate.lon;
-     // let lat = coordinate.lat;
      let { lat, lon } = coordinate;
-
      // remove the grantAccess container
      grantAccess.classList.remove("active");
      // screen loader show
