@@ -64,7 +64,7 @@
      border-radius: 5px;
      background-color: var(--btn-bg);
 }
-
+/* Grant Access Start */
 .grant-access {
      width: 100%;
      max-width: 510px;
@@ -78,6 +78,7 @@
 .grant-access.active{
      display:flex;
 }
+
 .location-img{
      width:15%;
 }
@@ -104,9 +105,9 @@
 
 }
 
-/* -------end----------- */
+/* ------- Grant Access end----------- */
 
-/* weather container */
+/*-------Wseather container Start-------*/
 .weather-container{
      display: none;
      flex-direction: column;
@@ -115,6 +116,10 @@
      margin: 3rem 0;
      padding: 0.75rem;
      gap: 1rem;
+}
+
+.weather-container.active{
+     display: flex;
 }
 
 .content{
@@ -149,9 +154,10 @@
 .weather-icon{
      width: 40%;
 }
-/* -------end----------- */
+/*-------Wseather container end-------*/
 
-/* Search Container */
+
+/* Search Container Start */
 .search-weather-container{
      display: none;
      width: 100%;
@@ -195,14 +201,14 @@
 .search-btn i{
      font-size: 1rem;
 }
+/*-------Search Container End-------*/
+
+/* Loader Start */
+
 .loading{
      display: none;
 }
 .loading.active{
      display: block;
 }
-/* @media screen and (max-width:320px) {
-     .main-content{
-          
-     }
-} */
+/* Loader End */
