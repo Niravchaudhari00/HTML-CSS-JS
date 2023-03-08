@@ -13,6 +13,7 @@ const inputSearch = document.querySelector("#searchCity");
 
 // fetch weather-container
 const weatherContainer = document.querySelector("[data-userWeatherContainer]");
+const loadingScreen = document.querySelector("[data-loading]");
 
 // initial need???
 // https://openweathermap.org/api
@@ -66,10 +67,10 @@ function getFormSessionStorage() {
 // fetch the waether api this function is a sync function
 async function fetchUserWeatherInfo(coordinate) {
      let { lat, lon } = coordinate;
+     
      // remove the grantAccess container
      grantAccess.classList.remove("active");
      // screen loader show
-     const loadingScreen = document.querySelector("[data-loading]");
      loadingScreen.classList.add("active");
 
      // API CALL
@@ -123,3 +124,36 @@ function getLocation() {
      }
 }
 grantAccessBtn.addEventListener("click", getLocation);
+
+
+// search form you want to search city and show the city weather
+
+document.querySelector("[data-getSearchForm]").addEventListener("submit", (e) => {
+     e.preventDefault();
+     let cityName = document.getElementById("searchCity");
+     let city = cityName.value;
+     // console.log(city);
+     if (city === "")
+          return
+     else
+          fetchSearchFormApi(city);
+  
+});
+
+async function fetchSearchFormApi(nameOfCity) {
+     loadingScreen.classList.add("active")
+     grantAccess.classList.remove("active");
+     weatherContainer.classList.remove("active");
+
+     try {
+          let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${nameOfCity}&appid=${API_KEY}`);
+
+          let data = await response.json()
+          loadingScreen.classList.remove("active");
+          weatherContainer.classList.add("active");
+
+          randerWeatherInfo(data);
+     } catch (err) {
+
+     }
+}
